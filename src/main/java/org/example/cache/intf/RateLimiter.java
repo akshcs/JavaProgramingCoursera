@@ -1,4 +1,4 @@
-package org.example.service.intf;
+package org.example.cache.intf;
 
 public interface RateLimiter {
     boolean isAllowed(String apiKey);

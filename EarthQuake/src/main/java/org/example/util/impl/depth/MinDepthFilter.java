@@ -11,6 +11,6 @@ public class MinDepthFilter implements Filter {
     }
     @Override
     public boolean satisfies(QuakeEntry quakeEntry) {
-        return (quakeEntry.getDepth()>=minDepth);
+        return (quakeEntry.getDepth()>minDepth);
     }
 }

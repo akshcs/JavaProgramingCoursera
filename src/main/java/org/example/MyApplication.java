@@ -14,7 +14,14 @@ public class MyApplication {
         return "Hello World!";
     }
     public static void main(String[] args) {
+        int A = 5;
+        System.out.println(A);
         SpringApplication.run(MyApplication.class, args);
     }
 
+    private class abc{
+        public void bf(){
+
+        }
+    }
 }

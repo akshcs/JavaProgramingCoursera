@@ -4,71 +4,119 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a8ae90e-8335-4d65-85ea-3dcc11705b4d" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/DAO/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/DAO/QuakeEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/application/EarthQuakeApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/intf/EarthQuakeClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/config/RateLimitConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/EarthQuakeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/advice/ControllerExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/model/annotations/EarthQuakeCustomStyle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeParserImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/RateLimiterImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/EarthQuakeParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/EarthQuakeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/RateLimiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/MatchAllFilters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/MatchAnyFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/PagingImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/DepthComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/DistanceComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/MagnitudeAndDepthComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/MagnitudeComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/TitleAndDepthComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/TitleComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/comparator/TitleLastAndMagnitudeComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MaxDepthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MinDepthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/distance/MaxDistanceFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/distance/MinDistanceFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MaxMagnitudeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MinMagnitudeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/title/TitleContainsPhraseFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/title/TitleEndAtPhraseFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/title/TitleStartFromPhraseFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/intf/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/intf/Paging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataDec6sample1.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataDec6sample2.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataWeekDec6sample1.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataWeekDec6sample2.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthquakeDataSampleSix1.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthquakeDataSampleSix2.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/nov20quakedata.atom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MyApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/AbstractCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/CacheFactoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/LRUCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/LRUEvictionPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/MRUCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/MRUEvictionPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/intf/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/intf/CacheFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/intf/EvictionPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="6a8ae90e-8335-4d65-85ea-3dcc11705b4d" name="Changes" comment="Test Commit">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/FilteringData/PracticeQuiz/PAI_FD_PQ_Nov20QuakeDataEarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/FilteringData/ProgrammingExercise/PAI_FD_PE_Nov20QuakeDataSmallEarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/SearchingEarthQuakeData/PracticeQuiz/PAI_SED_PQ_Nov20QuakeDataEarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/SearchingEarthQuakeData/ProgrammingExercise/PAI_SED_PE_Nov20QuakeDataSmallEarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/review/PAI_Review_Nov20QuakeDataEarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_Dec6_Sample1EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_Dec6_Sample2EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SampleSix1EarthquakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SampleSix2EarthquakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/SortingAtScale/PracticeQuiz/Dec6Sample1EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/SortingAtScale/PracticeQuiz/Dec6Sample2EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/review/WeekDec6Sample1EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/review/WeekDec6Sample2EarthQuakeClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/Normal_QuakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/FilteringData/PracticeQuiz/PAI_FD_PQ_QuakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/FilteringData/ProgrammingExercise/PAI_FD_PE_QuakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/SearchingEarthQuakeData/PracticeQuiz/PAI_SED_PQ_QuakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/SearchingEarthQuakeData/ProgrammingExercise/PAI_SED_PE_QuakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_QuakeControllerSample1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_QuakeControllerSample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SA_ISS_PE_QuakeControllerSample1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SA_ISS_PE_QuakeControllerSample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/SortingAtScale/PracticeQuiz/SA_SAS_PQ_QuakeControllerSample1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/SortingAtScale/PracticeQuiz/SA_SAS_PQ_QuakeControllerSample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/review/SA_Review_QuakeControllerSample1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/review/SA_Review_QuakeControllerSample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/ProgrammingAndInterfaces/FilteringData/PracticeQuiz/PAI_FD_PQ_Nov20QuakeDataEarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/ProgrammingAndInterfaces/FilteringData/ProgrammingExercise/PAI_FD_PE_Nov20QuakeDataSmallEarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/ProgrammingAndInterfaces/SearchingEarthQuakeData/PracticeQuiz/PAI_SED_PQ_Nov20QuakeDataEarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/ProgrammingAndInterfaces/SearchingEarthQuakeData/ProgrammingExercise/PAI_SED_PE_Nov20QuakeDataSmallEarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/ProgrammingAndInterfaces/review/PAI_Review_Nov20QuakeDataEarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_Dec6_Sample1EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/ImplementingSelectionSort/PracticeQuiz/SA_ISS_PQ_Dec6_Sample2EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SampleSix1EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/ImplementingSelectionSort/ProgrammingExercise/SampleSix2EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/SortingAtScale/PracticeQuiz/Dec6Sample1EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/SortingAtScale/PracticeQuiz/Dec6Sample2EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/review/WeekDec6Sample1EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/review/WeekDec6Sample2EarthQuakeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/ProgrammingAndInterfaces/FilteringData/EarthquakeFilterStarterProgram/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/ProgrammingAndInterfaces/FilteringData/EarthquakeFilterStarterProgram/MinMagFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/ProgrammingAndInterfaces/SearchingEarthQuakeData/ClosestQuakesDemo/ClosestQuakes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/ProgrammingAndInterfaces/SearchingEarthQuakeData/SearchingEarthquakeDataStarterProgram/ClosestQuakes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/ImplementingSelectionSort/EarthquakeSortStarterProgram/QuakeSortInPlace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/ImplementingSelectionSort/EarthquakeSortStarterProgram/QuakeSortWithTwoArrayLists.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/ImplementingSelectionSort/InPlaceSortDemo/QuakeSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/ImplementingSelectionSort/SelectionSortDemo/QuakeSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/SortingAtScale/DistanceComparatorDemo/DistanceComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/SortingAtScale/EfficientSortStarterProgram/DistanceComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/SortingAtScale/EfficientSortStarterProgram/MagnitudeComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/SortingAlgorithms/SortingAtScale/TimeSortDemo/SortTimings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MaxEqualDepthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MinEqualDepthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MaxEqualMagnitudeFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MinEqualMagnitudeFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/alice.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/confucius.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/hawthorne.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/marseillaise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/melville.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/merkel.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/obama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/putin.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/InterfaceAbstractStarterProgram/data/romeo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/alice.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/confucius.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/hawthorne.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/marseillaise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/melville.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/merkel.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/obama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/putin.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/GeneratingRandomText/RandomTextStarterProgram/data/romeo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/alice.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/confucius.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/hawthorne.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/marseillaise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/melville.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/merkel.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/obama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/putin.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/NGramsPredictiveText/WordNGrams/WordGramClassStarterProgram/data/romeo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/ProgrammingAndInterfaces/FilteringData/data/ProgrammingExercise/nov20quakedatasmall.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/ProgrammingAndInterfaces/SearchingEarthQuakeData/data/PracticeQuiz/nov20quakedata.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/ProgrammingAndInterfaces/SearchingEarthQuakeData/data/ProgrammingExercise/nov20quakedatasmall.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/ProgrammingAndInterfaces/review/data/nov20quakedata.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/ImplementingSelectionSort/data/PracticeQuiz/earthQuakeDataDec6sample2.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/SortingAtScale/data/PracticeQuiz/earthQuakeDataDec6sample1.atom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/SortingAtScale/data/PracticeQuiz/earthQuakeDataDec6sample2.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/intf/EarthQuakeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/intf/EarthQuakeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/config/RateLimitConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/RateLimitConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/EarthQuakeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/review/PAI_Review_QuakeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/RateLimiterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/impl/RateLimiterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/EarthQuakeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/EarthQuakeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/intf/RateLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cache/intf/RateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MaxDepthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MaxDepthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MinDepthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/depth/MinDepthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MaxMagnitudeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MaxMagnitudeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MinMagnitudeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/util/impl/magnitude/MinMagnitudeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataDec6sample1.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/ImplementingSelectionSort/data/PracticeQuiz/earthQuakeDataDec6sample1.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataDec6sample2.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/review/data/earthQuakeDataWeekDec6sample2.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataWeekDec6sample1.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/review/data/earthQuakeDataWeekDec6sample1.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthQuakeDataWeekDec6sample2.atom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthquakeDataSampleSix1.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/ImplementingSelectionSort/data/ProgrammingExercise/earthquakeDataSampleSix1.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/earthquakeDataSampleSix2.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/ImplementingSelectionSort/data/ProgrammingExercise/earthquakeDataSampleSix2.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/nov20quakedata.atom" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/ProgrammingAndInterfaces/FilteringData/data/PracticeQuiz/nov20quakedata.atom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +140,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/EarthQuake/src/main/java/org/example/DAO/Location.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -102,41 +153,49 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2I6DBKUiLVjpfQaWf0PrHNchh6Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/development/Perosonal Projects/FirstSpringProject&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="ProjectId" id="2I6DBKUiLVjpfQaWf0PrHNchh6Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "D:/development/Perosonal Projects/FirstSpringProject/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/FilteringData",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\resources" />
-      <recent name="E:\Perosonal Projects\FirstSpringProject\src\main\java\org\example\cache" />
-      <recent name="E:\Perosonal Projects\FirstSpringProject\src\main\java\org\example\cache\impl" />
-      <recent name="E:\Perosonal Projects\FirstSpringProject\src\main\java\org\example\cache\intf" />
+      <recent name="D:\development\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\java\org\example\client\impl\ProgrammingAndInterfaces\FilteringData" />
+      <recent name="D:\development\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\resources\JavaProgrammingDesignPrinciples\ProgrammingAndInterfaces\FilteringData\data" />
+      <recent name="D:\development\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\java\org\example\service\impl\ProgrammingAndInterfaces\FilteringData" />
+      <recent name="D:\development\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\java\org\example\controller\ProgrammingAndInterfaces\FilteringData" />
+      <recent name="D:\development\Perosonal Projects\FirstSpringProject\EarthQuake\src\main\java\org\example\controller\SortingAlgorithms\SortingAtScale\PracticeQuiz" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.example.util" />
-      <recent name="org.example.util.impl.title" />
-      <recent name="org.example.util.impl" />
-      <recent name="org.example.client.intf" />
-      <recent name="org.example.service.intf" />
+      <recent name="org.example.util.impl.magnitude" />
+      <recent name="org.example.util.impl.depth" />
+      <recent name="org.example.controller" />
+      <recent name="org.example.controller.SortingAlgorithms.ImplementingSelectionSort.PracticeQuiz" />
+      <recent name="org.example.controller.ProgrammingAndInterfaces.SearchingEarthQuakeData.ProgrammingExcercise" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -160,18 +219,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LRUCache.testCache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EarthQuake" />
+    <configuration name="MyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.MyApplication" />
+      <module name="FirstSpringProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.util.impl.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.util.impl" />
-      <option name="MAIN_CLASS_NAME" value="org.example.util.impl.LRUCache" />
-      <option name="METHOD_NAME" value="testCache" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -225,10 +281,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EarthQuakeApplication" />
+        <item itemvalue="Application.MyApplication" />
         <item itemvalue="JUnit.Test (1)" />
         <item itemvalue="JUnit.Test" />
         <item itemvalue="JUnit.Test.testCache" />
-        <item itemvalue="JUnit.LRUCache.testCache" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +297,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669493004461</updated>
     </task>
+    <task id="LOCAL-00001" summary="Test Commit">
+      <created>1670962006875</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670962006875</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -255,15 +319,17 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Test Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/RateLimiterImpl.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/cache/impl/RateLimiterImpl.java</url>
+          <line>29</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -278,8 +344,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java</url>
-          <line>187</line>
+          <line>183</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/ProgrammingAndInterfaces/SearchingEarthQuakeData/ProgrammingExercise/PAI_SED_PE_QuakeController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/ProgrammingAndInterfaces/FilteringData/ProgrammingExercise/PAI_FD_PE_Nov20QuakeDataSmallEarthQuakeClientImpl.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

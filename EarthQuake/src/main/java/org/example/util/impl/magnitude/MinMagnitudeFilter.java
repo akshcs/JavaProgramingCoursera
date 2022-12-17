@@ -12,6 +12,6 @@ public class MinMagnitudeFilter implements Filter {
 
     @Override
     public boolean satisfies(QuakeEntry quakeEntry) {
-        return (quakeEntry.getMagnitude()>=minMagnitude);
+        return (quakeEntry.getMagnitude()>minMagnitude);
     }
 }

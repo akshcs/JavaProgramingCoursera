@@ -1,9 +1,8 @@
-package org.example.service.impl;
+package org.example.cache.impl;
 
+import org.example.cache.intf.RateLimiter;
 import org.example.config.RateLimitConfig;
-import org.example.service.intf.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ public class RateLimiterImpl implements RateLimiter {
     private HashMap<String, LinkedList<Date>> userInfo=  new HashMap<>();
 
     @Autowired
-            private RateLimitConfig config;
+    private RateLimitConfig config;
 
     RateLimiterImpl(RateLimitConfig config){
         this.config =  config;

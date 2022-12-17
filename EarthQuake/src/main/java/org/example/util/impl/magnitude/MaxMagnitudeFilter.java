@@ -12,6 +12,6 @@ public class MaxMagnitudeFilter implements Filter {
 
     @Override
     public boolean satisfies(QuakeEntry quakeEntry) {
-        return (quakeEntry.getMagnitude()<=maxMagnitude);
+        return (quakeEntry.getMagnitude()<maxMagnitude);
     }
 }

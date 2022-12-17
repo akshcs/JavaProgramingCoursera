@@ -19,24 +19,20 @@ import org.example.util.impl.title.TitleEndAtPhraseFilter;
 import org.example.util.impl.title.TitleStartFromPhraseFilter;
 import org.example.util.intf.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
-@Component
-public class EarthQuakeClientImpl implements EarthQuakeClient {
+public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
 
     @Autowired
     private EarthQuakeParser earthQuakeParser;
 
+    public abstract String getDataSource();
+
     @Override
     public ArrayList<QuakeEntry> getAllQuakes(){
-//        String source = "EarthQuake/src/main/resources/nov20quakedata.atom";
-        String source = "EarthQuake/src/main/resources/earthQuakeDataWeekDec6sample2.atom";
-        ArrayList<QuakeEntry> quakeList  = earthQuakeParser.read(source);
-//        Collections.sort(quakeList);
+        ArrayList<QuakeEntry> quakeList  = earthQuakeParser.read(getDataSource());
         System.out.println("# quakes = "+quakeList.size());
         return quakeList;
     }
@@ -56,16 +52,14 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     @Override
     public ArrayList<QuakeEntry> closeToMe(Location city, double distance) {
         ArrayList<QuakeEntry> filteredQuakeEntries = filter(getAllQuakes(), new MaxDistanceFilter(distance, city));
-        System.out.println("# Quakes with distance less than "+ distance + " from latitude(" + city.getLatitude() +  "), "+ "longitude(" +
-                + city.getLongitude() + ") = " + filteredQuakeEntries.size());
+        System.out.println("# Quakes with distance less than "+ distance + " from latitude(" + city.getLatitude() +  "), "+ "longitude(" + city.getLongitude() + ") = " + filteredQuakeEntries.size());
         return filteredQuakeEntries;
     }
 
     @Override
     public ArrayList<QuakeEntry> closeToMeInACountry(Location city, double distance, String country) {
         ArrayList<QuakeEntry> filteredQuakeEntries = filter(getAllQuakes(), new MatchAllFilters(getMaxDistanceFilter_InACountry(distance, city, country)));
-        System.out.println("# Quakes with distance less than "+ distance + " from latitude(" + city.getLatitude() +  "), "+ "longitude(" +
-                + city.getLongitude() + ") In " + country + " = " + filteredQuakeEntries.size());
+        System.out.println("# Quakes with distance less than "+ distance + " from latitude(" + city.getLatitude() +  "), "+ "longitude(" + city.getLongitude() + ") In " + country + " = " + filteredQuakeEntries.size());
         return filteredQuakeEntries;
     }
 
@@ -80,8 +74,7 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     public ArrayList<QuakeEntry> quakesOfDepthAndMagnitude(double minDepth, double maxDepth, double minMagnitude, double maxMagnitude) {
         ArrayList<QuakeEntry> filteredQuakeEntries = filter(getAllQuakes(), new MatchAllFilters(
                 getMagnitudeMinMaxFilter_DepthMinMaxFilter(minMagnitude, maxMagnitude, minDepth, maxDepth)));
-        System.out.println("# Quakes of Depth between ("+ minDepth + " - " + maxDepth +  ") and Magnitude between ("+ minMagnitude + " - " +
-                + maxMagnitude + ") = " + filteredQuakeEntries.size());
+        System.out.println("# Quakes of Depth between ("+ minDepth + " - " + maxDepth +  ") and Magnitude between ("+ minMagnitude + " - " + maxMagnitude + ") = " + filteredQuakeEntries.size());
         return filteredQuakeEntries;
     }
 
@@ -90,8 +83,7 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
                                                                  String phrase, EarthQuakeServiceImpl.PhrasePattern pattern) {
         ArrayList<QuakeEntry> filteredQuakeEntries = filter(getAllQuakes(), new MatchAllFilters(
                 getMagnitudeMinMaxFilter_DepthMinMaxFilter_FilterFromPattern(minMagnitude, maxMagnitude, minDepth, maxDepth, phrase, pattern)));
-        System.out.println("# Quakes of Depth between ("+ minDepth + " - " + maxDepth +  ") , Magnitude between ("+ minMagnitude + " - " +
-                + maxMagnitude + ") And By Phase " + pattern + " - " + phrase +  " = "+ filteredQuakeEntries.size());
+        System.out.println("# Quakes of Depth between ("+ minDepth + " - " + maxDepth +  ") , Magnitude between ("+ minMagnitude + " - " + maxMagnitude + ") And By Phase " + pattern + " - " + phrase +  " = "+ filteredQuakeEntries.size());
         return filteredQuakeEntries;
     }
 
@@ -129,11 +121,11 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     }
 
     @Override
-    public int sort(ArrayList<QuakeEntry> allQuakes, String sortingAlgo, String sortingParam, boolean isAsc) {
+    public int sort(ArrayList<QuakeEntry> allQuakes, String sortingAlgo, String sortingParam, boolean isAsc, int passes) {
         if(sortingAlgo.equals("SelectionSort")){
-            return sortBySelectionSort(allQuakes, sortingParam, isAsc);
+            return sortBySelectionSort(allQuakes, sortingParam, isAsc, passes);
         } else if(sortingAlgo.equals("BubbleSort")){
-            return sortByBubbleSort(allQuakes, sortingParam, isAsc);
+            return sortByBubbleSort(allQuakes, sortingParam, isAsc, passes);
         }
         return 0;
     }
@@ -141,20 +133,27 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     @Override
     public void sortWithComparator(ArrayList<QuakeEntry> allQuakes, String comparator, boolean asc) {
         Comparator comp = null;
-        if(comparator.equals("MagnitudeComparator")){
-            comp = new MagnitudeComparator();
-        } else if(comparator.equals("DepthComparator")){
-            comp = new DepthComparator();
-        } else if(comparator.equals("TitleComparator")){
-            comp = new TitleComparator();
-        } else if(comparator.equals("TitleAndDepthComparator")){
-            comp = new TitleAndDepthComparator();
-        } else if(comparator.equals("TitleLastAndMagnitudeComparator")){
-            comp = new TitleLastAndMagnitudeComparator();
-        } else if(comparator.equals("MagnitudeAndDepthComparator")){
-            comp = new MagnitudeAndDepthComparator();
+        switch (comparator) {
+            case "MagnitudeComparator":
+                comp = new MagnitudeComparator();
+                break;
+            case "DepthComparator":
+                comp = new DepthComparator();
+                break;
+            case "TitleComparator":
+                comp = new TitleComparator();
+                break;
+            case "TitleAndDepthComparator":
+                comp = new TitleAndDepthComparator();
+                break;
+            case "TitleLastAndMagnitudeComparator":
+                comp = new TitleLastAndMagnitudeComparator();
+                break;
+            case "MagnitudeAndDepthComparator":
+                comp = new MagnitudeAndDepthComparator();
+                break;
         }
-        Collections.sort(allQuakes, comp);
+        allQuakes.sort(comp);
     }
 
     @Override
@@ -168,24 +167,21 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
         return answer;
     }
 
-    private int sortBySelectionSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc){
+    private int sortBySelectionSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc, int passes){
         int numberOfSwaps = 0;
+        int numberOfPass = 0;
         for(int i=0;i<quakeEntries.size();i++){
-            int index;
-            if(sortingParam.equals("magnitude")){
-                index = findQuakeIndexMagnitude(quakeEntries, i, isAsc);
-            } else {
-                index = findQuakeIndexDepth(quakeEntries, i, isAsc);
-            }
+            int index = findQuakeIndex(quakeEntries, i, isAsc, sortingParam);
             if(index!=i) {
-                numberOfSwaps=i+1;
+                numberOfSwaps++;
+                numberOfPass = i+1;
                 swapQuakeEntries(quakeEntries, i, index);
             }
-            if(i==49){
-                return numberOfSwaps;
+            if(passes==numberOfPass){
+                return numberOfPass;
             }
         }
-        return numberOfSwaps;
+        return numberOfPass;
     }
 
     private void swapQuakeEntries(ArrayList<QuakeEntry> quakeEntries, int index1, int index2){
@@ -195,7 +191,7 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
         quakeEntries.set(index2, index1Entry);
     }
 
-    private int sortByBubbleSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc){
+    private int sortByBubbleSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc, int passes){
         int numberOfPass = 0;
         for(int i=0;i<quakeEntries.size();i++){
             boolean passNeeded = false;
@@ -213,19 +209,7 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     }
 
     private boolean isSwapNeeded(ArrayList<QuakeEntry> quakeEntries, int currIndex, int nextIndex, boolean isAsc, String sortingParam){
-        if(sortingParam.equals("magnitude")){
-            if(isAsc){
-               return (quakeEntries.get(currIndex).getMagnitude() > quakeEntries.get(nextIndex).getMagnitude());
-            } else {
-                return (quakeEntries.get(currIndex).getMagnitude() < quakeEntries.get(nextIndex).getMagnitude());
-            }
-        } else {
-            if(isAsc){
-                return (quakeEntries.get(currIndex).getDepth() > quakeEntries.get(nextIndex).getDepth());
-            } else {
-                return (quakeEntries.get(currIndex).getDepth() < quakeEntries.get(nextIndex).getDepth());
-            }
-        }
+        return (currIndex==getIndexAfterCompare(quakeEntries, currIndex, nextIndex, isAsc, sortingParam));
     }
 
     @Override
@@ -239,8 +223,8 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
                     qe.getInfo());
         }
     }
-
-    private ArrayList<Filter> getDepthMinMaxFilter(double minDepth, double maxDepth){
+    @Override
+    public ArrayList<Filter> getDepthMinMaxFilter(double minDepth, double maxDepth){
         ArrayList<Filter> filters = new ArrayList<>();
         filters.add(new MinDepthFilter(minDepth));
         filters.add(new MaxDepthFilter(maxDepth));
@@ -253,8 +237,8 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
         filters.add(new MaxDistanceFilter(maxDistance, city));
         return filters;
     }
-
-    private ArrayList<Filter> getMagnitudeMinMaxFilter(double minMagnitude, double maxMagnitude){
+    @Override
+    public ArrayList<Filter> getMagnitudeMinMaxFilter(double minMagnitude, double maxMagnitude){
         ArrayList<Filter> filters = new ArrayList<>();
         filters.add(new MinMagnitudeFilter(minMagnitude));
         filters.add(new MaxMagnitudeFilter(maxMagnitude));
@@ -306,27 +290,25 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
     }
 
     private ArrayList<QuakeEntry> getNClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany){
-        return getNLargest_Closest(quakeData, howMany, current);
+        ArrayList<QuakeEntry> copy = new ArrayList<>(quakeData);
+        ArrayList<QuakeEntry> ret = new ArrayList<>();
+        while(howMany>0 && copy.size()>0){
+            int index = findClosestQuakeIndex(copy, current);
+            ret.add(copy.get(index));
+            copy.remove(index);
+            howMany--;
+        }
+        return ret;
     }
 
     private ArrayList<QuakeEntry> getNLargest(ArrayList<QuakeEntry> quakeData, int howMany) {
-        return getNLargest_Closest(quakeData, howMany, new Location(0,0));
-    }
-
-    private ArrayList<QuakeEntry> getNLargest_Closest(ArrayList<QuakeEntry> quakeData, int howMany, Location current){
         ArrayList<QuakeEntry> copy = new ArrayList<>(quakeData);
         ArrayList<QuakeEntry> ret = new ArrayList<>();
-        for(int j=0; j < howMany; j++) {
-            if(copy.size() > 0) {
-                int index;
-                if(current.getAccuracy() == 0 && current.getLongitude() ==0) {
-                    index = findLargestQuakeIndex(copy);
-                } else {
-                    index = findClosestQuakeIndex(copy, current);
-                }
-                ret.add(copy.get(index));
-                copy.remove(index);
-            }
+        while(howMany>0 && copy.size()>0){
+            int index = findLargestQuakeIndex(copy);
+            ret.add(copy.get(index));
+            copy.remove(index);
+            howMany--;
         }
         return ret;
     }
@@ -341,36 +323,40 @@ public class EarthQuakeClientImpl implements EarthQuakeClient {
         return index;
     }
 
-    private int findQuakeIndexMagnitude(ArrayList<QuakeEntry> quakeData, int startingIndex, boolean isAsc) {
+    private int findQuakeIndex(ArrayList<QuakeEntry> quakeData, int startingIndex, boolean isAsc, String param) {
         int index = startingIndex;
         for(int k=startingIndex+1; k < quakeData.size(); k++){
-            if(isAsc) {
-                if (quakeData.get(k).getMagnitude() < quakeData.get(index).getMagnitude()) {
-                    index = k;
-                }
-            } else {
-                if (quakeData.get(k).getMagnitude() > quakeData.get(index).getMagnitude()) {
-                    index = k;
-                }
-            }
+            index = getIndexAfterCompare(quakeData, k, index, isAsc, param);
         }
         return index;
     }
 
-    private int findQuakeIndexDepth(ArrayList<QuakeEntry> quakeData, int startingIndex, boolean isAsc) {
-        int index = startingIndex;
-        for(int k=startingIndex+1; k < quakeData.size(); k++){
-            if(isAsc) {
-                if (quakeData.get(k).getDepth() < quakeData.get(index).getDepth()) {
-                    index = k;
-                }
-            } else {
-                if (quakeData.get(k).getDepth() > quakeData.get(index).getDepth()) {
-                    index = k;
-                }
-            }
+    private int getIndexAfterCompare(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, boolean isAsc,  String param){
+        if(compareQuakes(quakeData, currentIndex, index, isAsc, param)){
+            index = currentIndex;
         }
         return index;
+    }
+
+    private boolean compareQuakes(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, boolean isAsc, String param){
+        ArrayList<Double> valuesForComparison = valuesForComparison(quakeData, currentIndex, index, param);
+        if(isAsc) {
+            return (valuesForComparison.get(0) < valuesForComparison.get(1));
+        } else {
+            return (valuesForComparison.get(0) > valuesForComparison.get(1));
+        }
+    }
+
+    private ArrayList<Double> valuesForComparison(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, String param){
+        ArrayList<Double> valuesForComparison = new ArrayList<>();
+        if(param.equals("magnitude")){
+            valuesForComparison.add(quakeData.get(currentIndex).getMagnitude());
+            valuesForComparison.add(quakeData.get(index).getMagnitude());
+        } else {
+            valuesForComparison.add(quakeData.get(currentIndex).getDepth());
+            valuesForComparison.add(quakeData.get(index).getDepth());
+        }
+        return valuesForComparison;
     }
 
     private int findClosestQuakeIndex(ArrayList<QuakeEntry> quakeData, Location current){

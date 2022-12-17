@@ -37,7 +37,13 @@ public interface EarthQuakeClient {
     ArrayList<QuakeEntry> getQuakesCloseToMeWithMagnitudeAndPhrase(double distance, Location city, double minMagnitude, double maxMagnitude,
                                                                    String phrase, EarthQuakeServiceImpl.PhrasePattern pattern);
 
-    int sort(ArrayList<QuakeEntry> allQuakes, String sortingAlgo, String sortingParam, boolean isAsc);
+    int sort(ArrayList<QuakeEntry> allQuakes, String sortingAlgo, String sortingParam, boolean isAsc, int passes);
 
     void sortWithComparator(ArrayList<QuakeEntry> allQuakes, String comparator, boolean asc);
+
+    String getDataSource();
+
+    ArrayList<Filter> getDepthMinMaxFilter(double minDepth, double maxDepth);
+
+    ArrayList<Filter> getMagnitudeMinMaxFilter(double minMagnitude, double maxMagnitude);
 }

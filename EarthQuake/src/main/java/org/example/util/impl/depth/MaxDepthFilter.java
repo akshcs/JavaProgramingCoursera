@@ -11,6 +11,6 @@ public class MaxDepthFilter implements Filter {
     }
     @Override
     public boolean satisfies(QuakeEntry quakeEntry) {
-        return (quakeEntry.getDepth()<=maxDepth);
+        return (quakeEntry.getDepth()<maxDepth);
     }
 }

@@ -1,6 +1,7 @@
 package org.example.service.intf;
 
 import org.example.DAO.QuakeEntry;
+import org.example.client.intf.EarthQuakeClient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -31,7 +32,9 @@ public interface EarthQuakeService {
     ArrayList<QuakeEntry> getQuakesCloseToMeWithMagnitudeAndPhrase(double latitude, double longitude, double distance, double minMagnitude,
                                                                    double maxMagnitude, String phrasePattern, String phrase);
 
-    Page<QuakeEntry> getQuakesPagedAndSorted(String sortingAlgo, String sortingParam, boolean isAsc, Pageable pageable);
+    Page<QuakeEntry> getQuakesPagedAndSorted(String sortingAlgo, String sortingParam, boolean isAsc, int passes, Pageable pageable);
 
     Page<QuakeEntry> getQuakesPagedAndSortedWithComparator(String comparator, boolean asc, Pageable pageable);
+
+    EarthQuakeClient getEarthQuakeClient();
 }

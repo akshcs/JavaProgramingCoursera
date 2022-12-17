@@ -1,9 +1,10 @@
-package org.example.controller;
+package org.example.controller.ProgrammingAndInterfaces.SearchingEarthQuakeData.PracticeQuiz;
 
 import org.example.DAO.QuakeEntry;
 import org.example.service.intf.EarthQuakeService;
 import org.example.util.intf.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/Quake/")
-public class EarthQuakeController {
+@RequestMapping("/PAI/SED/PQ/")
+public class PAI_SED_PQ_QuakeController {
 
+    @Qualifier("PAI_SED_PQ_Nov20")
     @Autowired
     private EarthQuakeService earthQuakeService;
 
@@ -22,7 +24,7 @@ public class EarthQuakeController {
 
     @GetMapping("")
     String home() {
-        return "Hello World to EarthQuake";
+        return "Hello Folks Welcome to Programming and Interfaces Searching Earthquake Data Practice Quiz Answers";
     }
 
     @GetMapping("All")
@@ -31,10 +33,9 @@ public class EarthQuakeController {
     }
 
     @GetMapping("PagedSorted")
-    Page<QuakeEntry> getAllQuakesSorted(@RequestParam("sortingAlgo") String sortingAlgo,
-                                                                     @RequestParam("sortingParam") String sortingParam,
-                                                                     @RequestParam("sort") String direction, Pageable pageable) {
-        return earthQuakeService.getQuakesPagedAndSorted(sortingAlgo, sortingParam, direction.equals("ASC"), pageable);
+    Page<QuakeEntry> getAllQuakesSorted(@RequestParam("sortingAlgo") String sortingAlgo, @RequestParam("sortingParam") String sortingParam,
+                                        @RequestParam("sort") String direction, @RequestParam("passes") int passes, Pageable pageable) {
+        return earthQuakeService.getQuakesPagedAndSorted(sortingAlgo, sortingParam, direction.equals("ASC"), passes, pageable);
     }
 
     @GetMapping("PagedSorted/Comparator")
