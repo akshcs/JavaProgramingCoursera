@@ -21,6 +21,7 @@ import org.example.util.intf.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
@@ -123,37 +124,36 @@ public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
     @Override
     public int sort(ArrayList<QuakeEntry> allQuakes, String sortingAlgo, String sortingParam, boolean isAsc, int passes) {
         if(sortingAlgo.equals("SelectionSort")){
-            return sortBySelectionSort(allQuakes, sortingParam, isAsc, passes);
+            return sortBySelectionSort(allQuakes, sortingParam, sortingAlgo, isAsc, passes);
         } else if(sortingAlgo.equals("BubbleSort")){
-            return sortByBubbleSort(allQuakes, sortingParam, isAsc, passes);
+            return sortByBubbleSort(allQuakes, sortingParam, sortingAlgo, isAsc, passes);
         }
         return 0;
     }
 
-    @Override
-    public void sortWithComparator(ArrayList<QuakeEntry> allQuakes, String comparator, boolean asc) {
-        Comparator comp = null;
+    private Comparator getComparator(String comparator) {
         switch (comparator) {
             case "MagnitudeComparator":
-                comp = new MagnitudeComparator();
-                break;
+                return new MagnitudeComparator();
             case "DepthComparator":
-                comp = new DepthComparator();
-                break;
+                return new DepthComparator();
             case "TitleComparator":
-                comp = new TitleComparator();
-                break;
+                return new TitleComparator();
             case "TitleAndDepthComparator":
-                comp = new TitleAndDepthComparator();
-                break;
+                return new TitleAndDepthComparator();
             case "TitleLastAndMagnitudeComparator":
-                comp = new TitleLastAndMagnitudeComparator();
-                break;
+                return new TitleLastAndMagnitudeComparator();
             case "MagnitudeAndDepthComparator":
-                comp = new MagnitudeAndDepthComparator();
-                break;
+                return new MagnitudeAndDepthComparator();
         }
-        allQuakes.sort(comp);
+        return new MagnitudeComparator();
+    }
+    @Override
+    public void sortWithComparator(ArrayList<QuakeEntry> allQuakes, String comparator, boolean asc){
+        allQuakes.sort(getComparator(comparator));
+        if(!asc){
+            Collections.reverse(allQuakes);
+        }
     }
 
     @Override
@@ -167,17 +167,15 @@ public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
         return answer;
     }
 
-    private int sortBySelectionSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc, int passes){
-        int numberOfSwaps = 0;
+    private int sortBySelectionSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, String sortingAlgo, boolean isAsc, int passes){
         int numberOfPass = 0;
         for(int i=0;i<quakeEntries.size();i++){
-            int index = findQuakeIndex(quakeEntries, i, isAsc, sortingParam);
+            int index = findQuakeIndex(quakeEntries, sortingAlgo, i, isAsc,  sortingParam);
             if(index!=i) {
-                numberOfSwaps++;
-                numberOfPass = i+1;
+                numberOfPass=i+1;
                 swapQuakeEntries(quakeEntries, i, index);
             }
-            if(passes==numberOfPass){
+            if(passes == (i+1)){
                 return numberOfPass;
             }
         }
@@ -191,25 +189,28 @@ public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
         quakeEntries.set(index2, index1Entry);
     }
 
-    private int sortByBubbleSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, boolean isAsc, int passes){
+    private int sortByBubbleSort(ArrayList<QuakeEntry> quakeEntries, String sortingParam, String sortingAlgo, boolean isAsc, int passes){
         int numberOfPass = 0;
         for(int i=0;i<quakeEntries.size();i++){
             boolean passNeeded = false;
             for(int j=0;j<(quakeEntries.size()-i-1);j++){
-                if(isSwapNeeded(quakeEntries, j, j+1, isAsc, sortingParam)){
+                if(isSwapNeeded(quakeEntries, sortingAlgo, j, j+1, isAsc, sortingParam)){
                     passNeeded = true;
                     swapQuakeEntries(quakeEntries, j, j+1);
                 }
             }
             if(passNeeded){
                 numberOfPass=i+1;
+                if(numberOfPass == passes){
+                    return numberOfPass;
+                }
             }
         }
         return numberOfPass;
     }
 
-    private boolean isSwapNeeded(ArrayList<QuakeEntry> quakeEntries, int currIndex, int nextIndex, boolean isAsc, String sortingParam){
-        return (currIndex==getIndexAfterCompare(quakeEntries, currIndex, nextIndex, isAsc, sortingParam));
+    private boolean isSwapNeeded(ArrayList<QuakeEntry> quakeEntries, String sortingAlgo, int currIndex, int nextIndex, boolean isAsc, String sortingParam){
+        return (currIndex==getIndexAfterCompare(quakeEntries, sortingAlgo, currIndex, nextIndex, isAsc, sortingParam));
     }
 
     @Override
@@ -323,38 +324,46 @@ public abstract class EarthQuakeClientImpl implements EarthQuakeClient {
         return index;
     }
 
-    private int findQuakeIndex(ArrayList<QuakeEntry> quakeData, int startingIndex, boolean isAsc, String param) {
+    private int findQuakeIndex(ArrayList<QuakeEntry> quakeData,  String sortingAlgo, int startingIndex, boolean isAsc, String param) {
         int index = startingIndex;
         for(int k=startingIndex+1; k < quakeData.size(); k++){
-            index = getIndexAfterCompare(quakeData, k, index, isAsc, param);
+            index = getIndexAfterCompare(quakeData, sortingAlgo, k, index, isAsc, param);
         }
         return index;
     }
 
-    private int getIndexAfterCompare(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, boolean isAsc,  String param){
-        if(compareQuakes(quakeData, currentIndex, index, isAsc, param)){
+    private int getIndexAfterCompare(ArrayList<QuakeEntry> quakeData, String sortingAlgo, int currentIndex, int index, boolean isAsc,  String param){
+        if(compareQuakes(quakeData, sortingAlgo, currentIndex, index, isAsc, param)){
             index = currentIndex;
         }
         return index;
     }
 
-    private boolean compareQuakes(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, boolean isAsc, String param){
-        ArrayList<Double> valuesForComparison = valuesForComparison(quakeData, currentIndex, index, param);
+    private boolean compareQuakes(ArrayList<QuakeEntry> quakeData, String sortingAlgo, int currentIndex, int index, boolean isAsc, String param){
+        ArrayList<Double> valuesForComparison = valuesForComparison(quakeData, sortingAlgo, currentIndex, index, param);
         if(isAsc) {
-            return (valuesForComparison.get(0) < valuesForComparison.get(1));
-        } else {
             return (valuesForComparison.get(0) > valuesForComparison.get(1));
+        } else {
+            return (valuesForComparison.get(0) < valuesForComparison.get(1));
         }
     }
 
-    private ArrayList<Double> valuesForComparison(ArrayList<QuakeEntry> quakeData, int currentIndex, int index, String param){
+    private ArrayList<Double> valuesForComparison(ArrayList<QuakeEntry> quakeData,  String sortingAlgo, int currentIndex, int index, String param){
         ArrayList<Double> valuesForComparison = new ArrayList<>();
-        if(param.equals("magnitude")){
-            valuesForComparison.add(quakeData.get(currentIndex).getMagnitude());
-            valuesForComparison.add(quakeData.get(index).getMagnitude());
+        Double value1, value2;
+        if(param.equals("Magnitude")){
+            value1 = quakeData.get(currentIndex).getMagnitude();
+            value2 = quakeData.get(index).getMagnitude();
         } else {
-            valuesForComparison.add(quakeData.get(currentIndex).getDepth());
-            valuesForComparison.add(quakeData.get(index).getDepth());
+            value1 = quakeData.get(currentIndex).getDepth();
+            value2 = quakeData.get(index).getDepth();
+        }
+        if(sortingAlgo.equals("SelectionSort")){
+            valuesForComparison.add(value2);
+            valuesForComparison.add(value1);
+        } else {
+            valuesForComparison.add(value1);
+            valuesForComparison.add(value2);
         }
         return valuesForComparison;
     }

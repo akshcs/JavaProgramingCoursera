@@ -1,0 +1,21 @@
+server:
+  port: 8083
+  servlet:
+    context-path: '/EarthQuakes'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+info:
+  application:
+    name: EarthQuake-Application
+    description: An Application to Get Earth Quake to Complete Coursera Java Course
+    author: Akash Singh
+    version: '@project.version@'
+spring:
+  profiles:
+    active: dev

@@ -113,7 +113,7 @@ public abstract class EarthQuakeServiceImpl implements EarthQuakeService {
     public Page<QuakeEntry> getQuakesPagedAndSorted(String sortingAlgo, String sortingParam, boolean isAsc, int passes, Pageable pageable){
         ArrayList<QuakeEntry> allQuakes = getAllQuakes();
         int numberOfSwaps = getEarthQuakeClient().sort(allQuakes, sortingAlgo, sortingParam, isAsc, passes);
-        System.out.println("Number of Swaps  = " + numberOfSwaps);
+        System.out.println("Number of Passes = " + numberOfSwaps);
         return paging.getDataInPages(allQuakes, pageable);
     }
 
