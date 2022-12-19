@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a8ae90e-8335-4d65-85ea-3dcc11705b4d" name="Changes" comment="Make Controller for Each Test">
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/SortingAlgorithms/SortingAtScale/ProgrammingExercise/SA_SAS_PE_Nov20QuakeDataEarthQuakeClientImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/controller/SortingAlgorithms/SortingAtScale/ProgrammingExercise/SA_SAS_PE_QuakeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/SortingAlgorithms/SortingAtScale/ProgrammingExercise/SA_SAS_PE_Nov20EarthQuakeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/JavaProgrammingDesignPrinciples/SortingAlgorithms/SortingAtScale/data/ProgrammingExercise/nov20quakedata.atom.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/client/impl/EarthQuakeClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/java/org/example/service/impl/EarthQuakeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EarthQuake/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/EarthQuake/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="6a8ae90e-8335-4d65-85ea-3dcc11705b4d" name="Changes" comment="Add Properties from Yaml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671311571630</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Properties from Yaml">
+      <created>1671477590657</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671477590657</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,7 +225,8 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Test Commit" />
     <MESSAGE value="Make Controller for Each Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make Controller for Each Test" />
+    <MESSAGE value="Add Properties from Yaml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Properties from Yaml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
